@@ -1,0 +1,43 @@
+# Notion API Configuration
+NOTION_TOKEN: "your_notion_integration_token_here"
+DATABASE_ID: "your_database_id_here"
+
+# Properties to process from the database
+target_props:
+  - "Property1"
+  - "Property2"
+  - "Property3"
+
+# Filters for querying the database
+filter:
+  all: # Filter to fetch all pages for processing
+    property: "Status"
+    select:
+      equals: "Active"
+  target: # Filter to fetch target pages to update
+    property: "Type"
+    select:
+      equals: "Summary"
+
+# Processing configuration (choose one approach below)
+
+# Option 1: Use a predefined handler
+handler_type: "sum"  # Available: sum, count, concat, collect, average
+
+# Option 2: Use custom processor configuration
+# processor_config:
+#   type: "sum"  # Available: sum, average, count, concat, collect
+#   properties: ["Property1", "Property2"]
+#   options:
+#     separator: "; "  # For concat processor only
+
+# Option 3: Use multiple processors
+# processor_config:
+#   - type: "sum"
+#     properties: ["Price", "Cost"]
+#   - type: "count"
+#     properties: ["Items"]
+#   - type: "concat"
+#     properties: ["Tags", "Categories"]
+#     options:
+#       separator: ", "

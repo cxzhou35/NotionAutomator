@@ -1,5 +1,5 @@
-!configs/default.yaml
 configs/*
+!configs/default.yaml
 
 .DS_Store
 *.pyc
