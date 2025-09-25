@@ -1,0 +1,4 @@
+!configs/default.yaml
+configs/*
+
+*.pyc
